@@ -1,0 +1,107 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "smarttube",
+    "nameCn": "SmartTube",
+    "repoName": "smarttube-deploy-guide",
+    "oneLiner": "给 Android TV 和电视盒子用的第三方视频客户端，带去广告与 SponsorBlock",
+    "officialRepo": "https://github.com/yuliskov/SmartTube",
+    "officialDocs": "https://github.com/yuliskov/SmartTube#readme",
+    "stars": "35895",
+    "license": "MIT",
+    "highlights": [
+      "35895 stars，电视端口碑项目",
+      "SponsorBlock 自动跳过赞助片段",
+      "支持 8K、60fps、HDR",
+      "不依赖 Google 服务",
+      "内置更新器",
+      "MIT 协议"
+    ],
+    "mcpSupport": "项目本身不带 MCP；本仓库的 MCP server 提供安装方式、设备兼容性与常见故障排查。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-04",
+    "verification": [
+      [
+        "README 确认安装方式、设备兼容范围与风险提示",
+        "已核对 2026-11-04"
+      ],
+      [
+        "确认官方 APK 下载地址与 beta/stable 两个通道",
+        "已核对 2026-11-04"
+      ],
+      [
+        "未实测 APK 下载、ADB 安装与电视端播放",
+        "说明 2026-11-04"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-04"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-04"
+      ]
+    ],
+    "deploy": {
+      "type": "binary",
+      "steps": [
+        "curl -fL -o smarttube_beta.apk https://github.com/yuliskov/SmartTube/releases/download/latest/smarttube_beta.apk",
+        "adb connect 192.168.1.100:5555",
+        "adb install -r smarttube_beta.apk"
+      ],
+      "stepsPs": [
+        "curl.exe -fL -o smarttube_beta.apk https://github.com/yuliskov/SmartTube/releases/download/latest/smarttube_beta.apk",
+        "adb connect 192.168.1.100:5555",
+        "adb install -r smarttube_beta.apk"
+      ],
+      "source": "https://github.com/yuliskov/SmartTube#installation"
+    },
+    "pitfalls": [
+      "安装失败：多为空间不足或 APK 下载不完整，清空间后重下",
+      "装上打不开：改装到内置存储，别装 SD 卡",
+      "ADB 连不上：确认电视与电脑同网段，且电视已授权调试",
+      "遥控器按键异常：在设置里重选设备型号",
+      "播放卡顿：关闭高码率选项或换 Stable 版",
+      "账号被限制：第三方客户端风险，改用小号",
+      "Chromecast 装不上：需先开启开发者选项再 ADB 安装"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/smarttube-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/smarttube-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "SmartTube",
+    "SmartTube 安装",
+    "电视 去广告",
+    "Android TV 客户端",
+    "电视盒子 应用",
+    "SponsorBlock 电视",
+    "8K 电视 播放",
+    "APK 安装 电视",
+    "smarttube 教程",
+    "SmartTube deploy guide"
+  ],
+  "topics": [
+    "android-tv",
+    "smarttube",
+    "apk",
+    "sponsorblock",
+    "media-player",
+    "kotlin"
+  ]
+}
